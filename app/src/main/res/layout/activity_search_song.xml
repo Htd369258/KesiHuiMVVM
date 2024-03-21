@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.htd.mymvvm.main.view_model.SearchSongViewModel" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="iTunes Music"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/search_bg"
+            android:gravity="center_vertical"
+            android:hint="Search"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:text="Sorting option"
+            android:textColor="@color/black" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:id="@+id/rg"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_off"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="off"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/rb_sort_by_price"
+                android:text="Sort by Price"
+                android:textColor="@color/black" />
+        </RadioGroup>
+
+
+      <com.scwang.smart.refresh.layout.SmartRefreshLayout
+          android:layout_width="match_parent"
+          android:id="@+id/refresh"
+          app:srlEnableLoadMore="true"
+          app:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}"
+          app:onRefreshCommand="@{viewModel.onRefreshCommand}"
+          android:layout_height="match_parent">
+          <com.scwang.smart.refresh.header.MaterialHeader
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
+          <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/rv"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" />
+          <com.scwang.smart.refresh.footer.ClassicsFooter
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
+      </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+
+</layout>

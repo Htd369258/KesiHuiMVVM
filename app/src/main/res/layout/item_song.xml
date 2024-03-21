@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="song"
+            type="com.htd.mymvvm.main.response.Song" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <ImageView
+            android:layout_width="50dp"
+            android:id="@+id/iv_cover"
+            app:url="@{song.artworkUrl60}"
+            app:radiusAll="@{5}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="0dp"
+            app:layout_constraintRight_toLeftOf="@+id/price"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/iv_cover"
+            android:text="@{song.trackName}"
+            android:paddingTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:paddingRight="5dp"
+            app:layout_constraintLeft_toRightOf="@id/iv_cover"/>
+        <TextView
+            android:layout_width="0dp"
+            app:layout_constraintRight_toLeftOf="@+id/price"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:paddingRight="5dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+            android:text="@{song.artistName}"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toRightOf="@id/iv_cover"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/price"
+            android:text="@{song.priceStr}"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="#999999"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
