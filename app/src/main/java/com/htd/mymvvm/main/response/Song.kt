@@ -9,6 +9,6 @@ data class Song(
     val artworkUrl60:String
 ){
     fun getPriceStr():String{
-        return "￥${trackPrice}"
+        return "Price:$${trackPrice}"
     }
 }

@@ -13,14 +13,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
         xmlns:app="http://schemas.android.com/apk/res-auto">
         <ImageView
             android:layout_width="50dp"
             android:id="@+id/iv_cover"
             app:url="@{song.artworkUrl60}"
             app:radiusAll="@{5}"
+            android:layout_marginLeft="15dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -52,8 +51,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+            android:layout_marginRight="15dp"
             android:id="@+id/price"
             android:text="@{song.priceStr}"
             app:layout_constraintRight_toRightOf="parent"/>
